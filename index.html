@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Mystic Reader | Joelle DiBenedetto | Psychic Medium, Tarot & Spiritual Advisor</title>
+  <meta name="description" content="30 years of spiritual guidance. Psychic readings, Tarot, Mediumship, Reiki healing & Life coaching with Joelle DiBenedetto — The Mystic Reader. Hollywood, FL. Book your session today."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --deep-purple:#1a0a2e;
+      --purple:#2d1454;
+      --purple-mid:#4a2080;
+      --violet:#7b3fa0;
+      --gold:#c9a84c;
+      --gold-light:#e8c87a;
+      --gold-dim:rgba(201,168,76,0.15);
+      --cream:#faf7f2;
+      --warm-white:#f5f0e8;
+      --text:#1a0a2e;
+      --muted:#6b5e7a;
+      --border:rgba(201,168,76,0.25);
+      --star:#c9a84c;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Raleway',sans-serif;color:var(--text);background:var(--cream);overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+
+    /* STARS BACKGROUND */
+    .stars-bg{
+      position:fixed;inset:0;z-index:-1;
+      background:var(--deep-purple);
+      overflow:hidden;
+    }
+    .stars-bg::before{
+      content:'';position:absolute;inset:0;
+      background-image:
+        radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 40% 10%, rgba(255,255,255,0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 25%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 75% 55%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 85% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 70%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 80%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 75%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 35% 60%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 65% 90%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 20% 90%, rgba(255,255,255,0.5) 0%, transparent 100%);
+    }
+
+    /* NAV */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      background:rgba(26,10,46,0.92);backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+      padding:0 5%;
+    }
+    .nav-inner{
+      max-width:1100px;margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;
+      height:72px;
+    }
+    .nav-logo{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.4rem;font-weight:600;color:var(--gold);
+      letter-spacing:0.05em;
+    }
+    .nav-logo span{display:block;font-size:0.65rem;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,168,76,0.7);margin-top:-2px}
+    .nav-links{display:flex;gap:0.2rem;list-style:none}
+    .nav-links a{padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:500;color:rgba(255,255,255,0.7);letter-spacing:0.08em;text-transform:uppercase;border-radius:4px;transition:all 0.2s}
+    .nav-links a:hover{color:var(--gold);background:var(--gold-dim)}
+    .nav-book{background:var(--gold);color:var(--deep-purple);padding:0.5rem 1.3rem;border-radius:4px;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:background 0.2s}
+    .nav-book:hover{background:var(--gold-light)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:0.5rem}
+    .hamburger span{width:24px;height:2px;background:var(--gold);border-radius:2px}
+    .mobile-menu{display:none;position:fixed;inset:0;background:var(--deep-purple);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{color:rgba(255,255,255,0.85);font-size:1.3rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase}
+    .mobile-menu a:hover{color:var(--gold)}
+    .mobile-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(255,255,255,0.6);font-size:2rem;cursor:pointer}
+
+    /* HERO */
+    #hero{
+      min-height:100vh;
+      display:flex;align-items:center;justify-content:center;
+      padding:6rem 5% 4rem;
+      position:relative;
+      background:linear-gradient(180deg, rgba(26,10,46,0) 0%, rgba(26,10,46,0.4) 50%, rgba(26,10,46,0.9) 100%),
+                 radial-gradient(ellipse at 50% 30%, rgba(75,32,128,0.5) 0%, transparent 70%);
+      text-align:center;
+    }
+    .hero-inner{max-width:760px;margin:0 auto;position:relative;}
+    .hero-ornament{color:var(--gold);font-size:1.5rem;letter-spacing:0.5em;margin-bottom:1.5rem;opacity:0.7}
+    .hero-avatar{
+      width:160px;height:160px;border-radius:50%;margin:0 auto 2rem;
+      border:3px solid var(--gold);
+      box-shadow:0 0 30px rgba(201,168,76,0.3), 0 0 60px rgba(75,32,128,0.4);
+      object-fit:cover;object-position:top;
+      display:block;
+    }
+    .hero-avatar-placeholder{
+      width:160px;height:160px;border-radius:50%;margin:0 auto 2rem;
+      border:3px solid var(--gold);
+      box-shadow:0 0 30px rgba(201,168,76,0.3), 0 0 60px rgba(75,32,128,0.4);
+      background:linear-gradient(135deg, var(--purple), var(--purple-mid));
+      display:flex;align-items:center;justify-content:center;
+      font-size:4rem;
+    }
+    .hero-tag{
+      display:inline-block;
+      font-size:0.72rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;
+      color:var(--gold);margin-bottom:1rem;
+    }
+    .hero h1{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(3rem,8vw,5.5rem);
+      font-weight:300;line-height:1;
+      color:#ffffff;margin-bottom:0.5rem;
+      letter-spacing:0.02em;
+    }
+    .hero h1 em{color:var(--gold);font-style:italic;}
+    .hero-sub{
+      font-size:0.95rem;color:rgba(255,255,255,0.7);
+      line-height:1.8;margin:1.5rem auto 2.5rem;max-width:520px;
+      font-weight:300;letter-spacing:0.03em;
+    }
+    .hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .btn-gold{
+      background:var(--gold);color:var(--deep-purple);
+      padding:0.85rem 2.2rem;border-radius:2px;
+      font-weight:700;font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;
+      transition:all 0.2s;display:inline-block;
+    }
+    .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+    .btn-outline-gold{
+      border:1px solid rgba(201,168,76,0.6);color:var(--gold);
+      padding:0.85rem 2.2rem;border-radius:2px;
+      font-weight:600;font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;
+      transition:all 0.2s;display:inline-block;background:transparent;
+    }
+    .btn-outline-gold:hover{background:var(--gold-dim);border-color:var(--gold)}
+    .hero-divider{
+      display:flex;align-items:center;gap:1rem;margin:3rem auto 0;max-width:400px;
+    }
+    .hero-divider::before,.hero-divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent)}
+    .hero-divider span{color:var(--gold);font-size:1rem;opacity:0.7}
+
+    /* SECTIONS */
+    section{padding:6rem 5%;position:relative}
+    .section-inner{max-width:1100px;margin:0 auto}
+    .section-label{
+      font-size:0.7rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;
+      color:var(--gold);margin-bottom:0.8rem;
+    }
+    .section-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2rem,4vw,3rem);font-weight:400;
+      line-height:1.2;margin-bottom:1rem;
+    }
+    .section-desc{font-size:0.95rem;line-height:1.8;font-weight:300;color:var(--muted)}
+
+    /* ABOUT */
+    #about{background:rgba(26,10,46,0.95);color:white}
+    #about .section-title{color:white}
+    #about .section-desc{color:rgba(255,255,255,0.7)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+    .about-photo-wrap{position:relative;text-align:center}
+    .about-photo-frame{
+      width:280px;height:280px;border-radius:50%;margin:0 auto;
+      border:1px solid var(--gold);
+      box-shadow:0 0 40px rgba(201,168,76,0.2),0 0 80px rgba(75,32,128,0.3);
+      background:linear-gradient(135deg,var(--purple),var(--purple-mid));
+      display:flex;align-items:center;justify-content:center;font-size:6rem;
+      position:relative;overflow:hidden;
+    }
+    .about-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:top}
+    .about-glow{
+      position:absolute;width:320px;height:320px;
+      border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);
+      background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 70%);
+      pointer-events:none;
+    }
+    .experience-badge{
+      display:inline-block;margin-top:1.5rem;
+      background:var(--gold-dim);border:1px solid var(--border);
+      color:var(--gold);padding:0.5rem 1.2rem;
+      font-size:0.78rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
+    }
+    .about-points{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem}
+    .about-point{display:flex;gap:1rem;align-items:flex-start}
+    .point-sym{color:var(--gold);font-size:1.2rem;flex-shrink:0;margin-top:2px}
+    .about-point h4{font-size:0.9rem;font-weight:600;color:white;margin-bottom:0.2rem;letter-spacing:0.05em}
+    .about-point p{font-size:0.85rem;color:rgba(255,255,255,0.65);line-height:1.6}
+
+    /* SERVICES */
+    #services{background:var(--cream)}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}
+    .service-card{
+      background:white;border:1px solid rgba(201,168,76,0.2);
+      border-radius:2px;padding:2rem;
+      transition:all 0.3s;position:relative;overflow:hidden;
+    }
+    .service-card::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
+      transform:scaleX(0);transition:transform 0.3s;
+    }
+    .service-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(26,10,46,0.1);border-color:var(--gold)}
+    .service-card:hover::before{transform:scaleX(1)}
+    .service-sym{font-size:2.2rem;margin-bottom:1rem}
+    .service-card h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.3rem;font-weight:600;color:var(--purple);margin-bottom:0.6rem;
+    }
+    .service-card p{font-size:0.85rem;color:var(--muted);line-height:1.7}
+    .service-price{
+      margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(201,168,76,0.2);
+      font-size:0.8rem;color:var(--gold);font-weight:600;letter-spacing:0.08em;
+    }
+
+    /* BOOKING */
+    #booking{background:linear-gradient(135deg,var(--deep-purple) 0%,var(--purple) 100%);color:white}
+    #booking .section-title{color:white}
+    .booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+    .booking-info p{font-size:0.95rem;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:1.5rem;font-weight:300}
+    .booking-details{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem}
+    .booking-detail{display:flex;align-items:center;gap:0.8rem;font-size:0.85rem;color:rgba(255,255,255,0.7)}
+    .booking-detail span:first-child{color:var(--gold);font-size:1.1rem}
+    .booking-form{background:rgba(255,255,255,0.05);border:1px solid var(--border);padding:2.5rem}
+    .booking-form h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.5rem;font-weight:400;color:var(--gold);margin-bottom:1.5rem;
+    }
+    .form-field{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem}
+    .form-field label{font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6)}
+    .form-field input,.form-field select,.form-field textarea{
+      background:rgba(255,255,255,0.07);border:1px solid rgba(201,168,76,0.3);
+      color:white;padding:0.8rem 1rem;font-family:'Raleway',sans-serif;font-size:0.9rem;
+      outline:none;transition:border-color 0.2s;border-radius:1px;
+    }
+    .form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--gold)}
+    .form-field input::placeholder,.form-field textarea::placeholder{color:rgba(255,255,255,0.35)}
+    .form-field select option{color:var(--text);background:white}
+    .form-field textarea{resize:vertical;min-height:90px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .btn-submit{
+      width:100%;background:var(--gold);color:var(--deep-purple);border:none;
+      padding:1rem;font-family:'Raleway',sans-serif;font-weight:700;font-size:0.85rem;
+      letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;
+      transition:background 0.2s;margin-top:0.5rem;
+    }
+    .btn-submit:hover{background:var(--gold-light)}
+
+    /* TESTIMONIALS */
+    #testimonials{background:var(--warm-white)}
+    .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin-top:3rem}
+    .testimonial-card{
+      background:white;border:1px solid rgba(201,168,76,0.15);
+      padding:2rem;position:relative;
+    }
+    .testimonial-card::before{
+      content:'\201C';font-family:'Cormorant Garamond',serif;
+      font-size:5rem;color:var(--gold);opacity:0.2;
+      position:absolute;top:0.5rem;left:1rem;line-height:1;
+    }
+    .testimonial-stars{color:var(--star);font-size:0.85rem;margin-bottom:1rem}
+    .testimonial-text{font-size:0.9rem;line-height:1.8;color:var(--muted);font-style:italic;margin-bottom:1.2rem}
+    .testimonial-author{font-size:0.82rem;font-weight:600;color:var(--purple);letter-spacing:0.05em}
+
+    /* FAQ */
+    #faq{background:rgba(26,10,46,0.97);color:white}
+    #faq .section-title{color:white}
+    .faq-list{display:flex;flex-direction:column;gap:1px;margin-top:3rem;max-width:800px}
+    .faq-item{border:1px solid var(--border);overflow:hidden}
+    .faq-question{
+      width:100%;background:rgba(255,255,255,0.03);border:none;
+      color:white;padding:1.2rem 1.5rem;text-align:left;
+      font-family:'Raleway',sans-serif;font-size:0.95rem;font-weight:500;
+      cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+      transition:background 0.2s;
+    }
+    .faq-question:hover{background:rgba(201,168,76,0.08)}
+    .faq-question .arrow{color:var(--gold);transition:transform 0.3s;font-size:0.8rem}
+    .faq-question.open .arrow{transform:rotate(180deg)}
+    .faq-answer{
+      max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s;
+      background:rgba(255,255,255,0.02);
+    }
+    .faq-answer.open{max-height:300px;padding:1rem 1.5rem 1.2rem}
+    .faq-answer p{font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.8}
+
+    /* CTA */
+    .cta-section{
+      background:linear-gradient(135deg,var(--purple-mid),var(--deep-purple));
+      padding:5rem 5%;text-align:center;color:white;
+    }
+    .cta-section h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2rem,4vw,3rem);font-weight:300;margin-bottom:1rem;
+    }
+    .cta-section p{font-size:0.95rem;opacity:0.75;margin-bottom:2.5rem;font-weight:300}
+
+    /* FOOTER */
+    footer{background:var(--deep-purple);padding:3rem 5% 2rem;color:rgba(255,255,255,0.55)}
+    .footer-inner{max-width:1100px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border)}
+    .footer-brand h3{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--gold);font-size:1.4rem;font-weight:400;margin-bottom:0.5rem;
+    }
+    .footer-brand p{font-size:0.82rem;line-height:1.7;max-width:260px}
+    .footer-col h4{font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+    .footer-col a{font-size:0.83rem;transition:color 0.2s}.footer-col a:hover{color:var(--gold)}
+    .footer-bottom{display:flex;justify-content:space-between;padding-top:1.5rem;font-size:0.75rem;flex-wrap:wrap;gap:0.5rem}
+    .social-links{display:flex;gap:1rem;margin-top:1rem}
+    .social-link{
+      width:34px;height:34px;border:1px solid var(--border);
+      display:flex;align-items:center;justify-content:center;
+      font-size:0.85rem;transition:all 0.2s;color:rgba(255,255,255,0.6);
+    }
+    .social-link:hover{border-color:var(--gold);color:var(--gold)}
+
+    /* FADE ANIMATIONS */
+    .fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
+    .fade-up.visible{opacity:1;transform:translateY(0)}
+
+    /* DECORATIVE */
+    .ornament-divider{
+      text-align:center;padding:2rem 0;
+      font-size:1.2rem;color:var(--gold);opacity:0.5;letter-spacing:0.5em;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .about-grid,.booking-grid{grid-template-columns:1fr;gap:3rem}
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+    }
+    @media(max-width:600px){
+      .footer-grid{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
+      .hero-actions{flex-direction:column;align-items:center}
+    }
+  </style>
+</head>
+<body>
+
+<!-- STARS -->
+<div class="stars-bg"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      The Mystic Reader
+      <span>Joelle DiBenedetto</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#booking">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a href="#booking" class="nav-book">Book a Session</a>
+      <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  <a href="#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
+  <a href="#services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Services</a>
+  <a href="#testimonials" onclick="document.getElementById('mobileMenu').classList.remove('open')">Testimonials</a>
+  <a href="#faq" onclick="document.getElementById('mobileMenu').classList.remove('open')">FAQ</a>
+  <a href="#booking" onclick="document.getElementById('mobileMenu').classList.remove('open')">Book a Session</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner fade-up">
+    <div class="hero-ornament">✦ ✦ ✦</div>
+    <img src="joelle-avatar.jpg" alt="Joelle DiBenedetto — The Mystic Reader" class="hero-avatar"/>
+    <div class="hero-tag">Psychic · Medium · Spiritual Advisor</div>
+    <h1>The <em>Mystic</em> Reader</h1>
+    <p class="hero-sub">Thirty years of spiritual guidance. Connecting hearts with truth, clarity, and the unseen wisdom that surrounds us all.</p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn-gold">Book Your Session</a>
+      <a href="#services" class="btn-outline-gold">Explore Services</a>
+    </div>
+    <div class="hero-divider"><span>✦</span></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-photo-wrap fade-up">
+        <div class="about-photo-frame">
+          <img src="joelle-avatar.jpg" alt="Joelle DiBenedetto"/>
+        </div>
+        <div class="about-glow"></div>
+        <div class="experience-badge">✦ 30 Years of Spiritual Practice ✦</div>
+      </div>
+      <div class="fade-up">
+        <div class="section-label">About Joelle</div>
+        <h2 class="section-title" style="color:white;">A Gift Given.<br/>A Life Devoted.</h2>
+        <p class="section-desc" style="margin-bottom:1.5rem;">Joelle DiBenedetto has walked the spiritual path for over three decades. From her early years discovering her innate gifts to becoming one of South Florida's most sought-after psychic mediums, her journey has always been guided by a single purpose — to help others find clarity, healing, and peace.</p>
+        <p class="section-desc" style="margin-bottom:2rem;">As a trained Reiki healer and licensed massage therapist, Joelle approaches each session with both intuitive depth and professional compassion. Whether you seek connection with those who have passed, guidance on life's crossroads, or healing of the body and spirit, Joelle holds space for your truth with grace and integrity.</p>
+        <div class="about-points">
+          <div class="about-point">
+            <div class="point-sym">🔮</div>
+            <div><h4>Psychic & Mediumship Gifts</h4><p>Natural-born intuitive with the ability to connect with those on both sides of the veil.</p></div>
+          </div>
+          <div class="about-point">
+            <div class="point-sym">🌿</div>
+            <div><h4>Certified Reiki Healer</h4><p>Trained in the healing arts with a massage therapy license from the FL College of Natural Health.</p></div>
+          </div>
+          <div class="about-point">
+            <div class="point-sym">🌙</div>
+            <div><h4>Life Coach & Spiritual Advisor</h4><p>Empowering clients to step into their highest path with clarity, confidence, and purpose.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament-divider">✦ · · · ✦ · · · ✦</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="fade-up" style="text-align:center;max-width:600px;margin:0 auto 1rem;">
+      <div class="section-label">What I Offer</div>
+      <h2 class="section-title">Sacred Services</h2>
+      <p class="section-desc">Each session is uniquely guided by spirit and tailored to your needs. Every reading is held in a space of love, respect, and absolute confidentiality.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-sym">🔮</div>
+        <h3>Psychic Reading</h3>
+        <p>Gain clarity on relationships, career, life direction, and the unseen forces shaping your path. Joelle taps into your energy field to deliver honest, compassionate guidance.</p>
+        <div class="service-price">✦ In-Person · Phone · Video Available</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-sym">🃏</div>
+        <h3>Tarot Card Reading</h3>
+        <p>The ancient wisdom of the Tarot illuminates what lies ahead and what resides within. A powerful tool for self-discovery and spiritual insight.</p>
+        <div class="service-price">✦ Individual · Couples · Group Sessions</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-sym">🕊️</div>
+        <h3>Mediumship</h3>
+        <p>Receive healing messages from loved ones who have crossed over. Joelle bridges the seen and unseen worlds with sensitivity, care, and profound accuracy.</p>
+        <div class="service-price">✦ Private Sessions · Memorial Groups</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-sym">🙌</div>
+        <h3>Reiki Healing</h3>
+        <p>Restore balance, release energetic blockages, and invite deep healing through this gentle Japanese energy technique. Offered in-person with a licensed healing touch.</p>
+        <div class="service-price">✦ 60 & 90 Minute Sessions Available</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-sym">💫</div>
+        <h3>Life Coaching</h3>
+        <p>Spiritual life coaching that bridges intuitive guidance with practical action. Navigate transitions, find purpose, and unlock your true potential.</p>
+        <div class="service-price">✦ Single Sessions · Ongoing Programs</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-sym">✨</div>
+        <h3>Events & Parties</h3>
+        <p>Bring the mystical to your next gathering. Joelle provides readings for private parties, corporate events, bridal showers, and special occasions throughout South Florida.</p>
+        <div class="service-price">✦ Inquire for Custom Pricing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="section-inner">
+    <div class="booking-grid">
+      <div class="booking-info fade-up">
+        <div class="section-label">Begin Your Journey</div>
+        <h2 class="section-title">Book a Session</h2>
+        <p>Every session begins with intention. Share a little about yourself and what guidance you seek, and Joelle will reach out personally to confirm your appointment.</p>
+        <p>Sessions are available in-person in Hollywood, FL, as well as by phone and video for clients everywhere.</p>
+        <div class="booking-details">
+          <div class="booking-detail"><span>📍</span> Hollywood, FL 33020</div>
+          <div class="booking-detail"><span>📞</span> Available by phone & video worldwide</div>
+          <div class="booking-detail"><span>🕐</span> Sessions by appointment</div>
+          <div class="booking-detail"><span>🔒</span> All sessions held in strict confidence</div>
+        </div>
+        <div style="margin-top:2rem;padding:1.5rem;border:1px solid var(--border);background:rgba(201,168,76,0.05);">
+          <p style="font-size:0.82rem;color:var(--gold);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">A Note from Joelle</p>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.65);line-height:1.7;font-style:italic;">"I approach every session with an open heart and deep respect for your journey. My purpose is not to tell you what to do — but to help illuminate the path so you can walk it with confidence."</p>
+        </div>
+      </div>
+      <div class="booking-form fade-up">
+        <h3>✦ Request Your Session</h3>
+        <form onsubmit="return false;">
+          <div class="form-row">
+            <div class="form-field"><label>First Name</label><input type="text" placeholder="Your name"/></div>
+            <div class="form-field"><label>Last Name</label><input type="text" placeholder="Last name"/></div>
+          </div>
+          <div class="form-field"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
+          <div class="form-field"><label>Phone Number</label><input type="tel" placeholder="(555) 000-0000"/></div>
+          <div class="form-field">
+            <label>Service Requested</label>
+            <select>
+              <option disabled selected>Choose a service...</option>
+              <option>Psychic Reading</option>
+              <option>Tarot Card Reading</option>
+              <option>Mediumship Session</option>
+              <option>Reiki Healing</option>
+              <option>Life Coaching</option>
+              <option>Event / Party Booking</option>
+              <option>Not Sure — Let Joelle Guide Me</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Session Format</label>
+            <select>
+              <option disabled selected>How would you like to connect?</option>
+              <option>In-Person (Hollywood, FL)</option>
+              <option>Phone Call</option>
+              <option>Video Session</option>
+            </select>
+          </div>
+          <div class="form-field"><label>What Are You Seeking? (Optional)</label><textarea placeholder="Share anything you'd like Joelle to know before your session..."></textarea></div>
+          <button type="submit" class="btn-submit">✦ Request My Session</button>
+          <p style="font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:0.8rem;text-align:center;">Joelle will personally confirm your appointment within 24 hours.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="fade-up" style="text-align:center;max-width:600px;margin:0 auto 1rem;">
+      <div class="section-label">What Clients Say</div>
+      <h2 class="section-title">Words of the Heart</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Joelle's reading left me in tears — the good kind. She described my grandmother with such accuracy that I had no doubt she was truly there. I left feeling at peace for the first time in years."</p>
+        <div class="testimonial-author">M. Santos · Hollywood, FL</div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I was skeptical before my session. Within five minutes I was a believer. She told me things no one could have known. Her guidance helped me make a major life decision with total confidence."</p>
+        <div class="testimonial-author">T. Rivera · Miami, FL</div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The Reiki session with Joelle was transformative. I came in with so much tension and left feeling like a different person. She is gifted in every sense of the word."</p>
+        <div class="testimonial-author">A. Williams · Fort Lauderdale, FL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="fade-up" style="max-width:800px;">
+      <div class="section-label">Common Questions</div>
+      <h2 class="section-title" style="color:white;">What to Expect</h2>
+    </div>
+    <div class="faq-list fade-up">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How do I prepare for my session? <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Come with an open mind and open heart. You may write down specific questions you'd like guidance on, but it's not required. Joelle will connect with your energy naturally. Avoid alcohol for 24 hours prior and find a quiet, comfortable space for phone or video sessions.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Are sessions confidential? <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. Everything shared in a session with Joelle is held in the strictest confidence. Your privacy and trust are sacred.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Can you connect with a specific loved one who has passed? <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Joelle will always do her best to connect with those you hope to reach. However, mediumship sessions are guided by spirit — not all connections can be guaranteed on demand. Those who come forward are often the ones with the most important messages for you.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you offer remote sessions? <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. Joelle's gifts are not limited by distance. Phone and video sessions are just as powerful as in-person readings. Clients from across the country and internationally receive the same depth of connection.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long is a typical session? <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Sessions vary by service. Psychic and Tarot readings typically run 30-60 minutes. Mediumship sessions are usually 60 minutes. Reiki healing sessions are 60-90 minutes. Life coaching sessions are tailored to the individual. Joelle will discuss timing when confirming your appointment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Your path is waiting.<br/><em style="color:var(--gold);">Are you ready?</em></h2>
+  <p>Take the first step toward clarity, healing, and spiritual connection.</p>
+  <a href="#booking" class="btn-gold">✦ Book Your Session Today</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>The Mystic Reader</h3>
+        <p>Joelle DiBenedetto — Psychic Medium, Tarot Reader, Reiki Healer & Spiritual Advisor. 30 years of compassionate, accurate spiritual guidance.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/TheMysticReader/" target="_blank" class="social-link">f</a>
+          <a href="https://www.instagram.com/" target="_blank" class="social-link">ig</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Psychic Readings</a></li>
+          <li><a href="#services">Tarot</a></li>
+          <li><a href="#services">Mediumship</a></li>
+          <li><a href="#services">Reiki Healing</a></li>
+          <li><a href="#services">Life Coaching</a></li>
+          <li><a href="#services">Events & Parties</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#about">About Joelle</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#booking">Book a Session</a></li>
+          <li><a href="https://www.facebook.com/TheMysticReader/" target="_blank">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 The Mystic Reader · Joelle DiBenedetto · Hollywood, FL</div>
+      <div style="font-style:italic;opacity:0.5;">For entertainment purposes · All sessions are spiritual in nature</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fade animations
+  const obs = new IntersectionObserver(e => {
+    e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); });
+  }, {threshold: 0.08});
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
+    if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
+  }
+
+  // Mobile menu close on link click
+  document.querySelectorAll('.mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+  });
+</script>
+</body>
+</html>
