@@ -117,13 +117,34 @@
     }
     .hero h1{
       font-family:'Cormorant Garamond',serif;
-      font-size:clamp(2.2rem,6vw,4.5rem);
-      font-weight:500;line-height:1.1;
-      color:#ffffff;margin-bottom:0.5rem;
+      line-height:1.0;
+      margin-bottom:0.5rem;
       letter-spacing:0.02em;
-      text-shadow:0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(26,10,46,0.9);
     }
-    .hero h1 em{color:var(--gold-light);font-style:italic;text-shadow:0 0 30px rgba(201,168,76,0.4);}
+    .hero h1 .hero-the{
+      display:block;
+      font-size:clamp(0.8rem,1.8vw,1.1rem);
+      font-weight:300;
+      font-style:normal;
+      color:rgba(255,255,255,0.4);
+      letter-spacing:0.6em;
+      text-transform:uppercase;
+      margin-bottom:0.25rem;
+    }
+    .hero h1 .hero-main{
+      display:block;
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.8rem,7vw,5.2rem);
+      font-weight:600;
+      font-style:italic;
+      background:linear-gradient(135deg, #e8c87a 0%, #ffffff 55%, #e8c87a 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      letter-spacing:0.02em;
+      line-height:1.1;
+      filter:drop-shadow(0 0 18px rgba(201,168,76,0.28));
+    }
     .hero-sub{
       font-size:0.95rem;color:rgba(255,255,255,0.7);
       line-height:1.8;margin:1.5rem auto 2.5rem;max-width:520px;
@@ -394,7 +415,10 @@
     <div class="hero-ornament">✦ ✦ ✦</div>
     <img src="joelle-avatar.jpg" alt="Joelle DiBenedetto — The Mystic Reader" class="hero-avatar"/>
     <div class="hero-tag">Psychic · Medium · Tarot · Spiritual Reader</div>
-    <h1 style="color:#ffffff;text-shadow:0 2px 24px rgba(0,0,0,0.9),0 0 50px rgba(26,10,46,1);">The <em>Mystic</em> Reader</h1>
+    <h1>
+      <span class="hero-the">The</span>
+      <span class="hero-main">Mystic Reader</span>
+    </h1>
     <p class="hero-sub">Thirty years of spiritual guidance. Connecting hearts with truth, clarity, and the unseen wisdom that surrounds us all.</p>
     <div class="hero-actions">
       <a href="#booking" class="btn-gold">Book Your Session</a>
