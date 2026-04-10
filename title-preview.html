@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hero Title Previews — The Mystic Reader</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --deep-purple:#1a0a2e;
+    --gold:#c9a84c;
+    --gold-light:#e8c87a;
+  }
+  body{
+    background:var(--deep-purple);
+    font-family:'Raleway',sans-serif;
+    padding:3rem 1.5rem;
+  }
+  .page-label{
+    color:rgba(201,168,76,0.5);
+    font-size:0.75rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    text-align:center;
+    margin-bottom:3rem;
+  }
+  .option{
+    max-width:700px;
+    margin:0 auto 5rem;
+    text-align:center;
+  }
+  .option-num{
+    display:inline-block;
+    color:rgba(201,168,76,0.5);
+    font-size:0.7rem;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    border:1px solid rgba(201,168,76,0.2);
+    padding:0.3rem 1rem;
+    border-radius:20px;
+    margin-bottom:1.5rem;
+  }
+  .divider{
+    width:60%;
+    max-width:400px;
+    height:1px;
+    background:linear-gradient(90deg,transparent,rgba(201,168,76,0.3),transparent);
+    margin:2rem auto 0;
+  }
+
+  /* OPTION 1 — Full italic, all gold */
+  .opt1 h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2.5rem,7vw,5rem);
+    font-weight:400;
+    font-style:italic;
+    color:var(--gold-light);
+    letter-spacing:0.04em;
+    line-height:1.1;
+    text-shadow:0 0 40px rgba(201,168,76,0.35), 0 2px 20px rgba(0,0,0,0.8);
+  }
+
+  /* OPTION 2 — "The" small/muted above, "Mystic Reader" large italic gold */
+  .opt2 h1{
+    font-family:'Cormorant Garamond',serif;
+    line-height:1.0;
+    letter-spacing:0.02em;
+  }
+  .opt2 .the{
+    display:block;
+    font-size:clamp(1rem,2.5vw,1.6rem);
+    font-weight:300;
+    font-style:italic;
+    color:rgba(232,200,122,0.6);
+    letter-spacing:0.35em;
+    text-transform:uppercase;
+    margin-bottom:0.2rem;
+  }
+  .opt2 .main{
+    display:block;
+    font-size:clamp(2.8rem,7.5vw,5.5rem);
+    font-weight:500;
+    font-style:italic;
+    color:#ffffff;
+    text-shadow:0 2px 24px rgba(0,0,0,0.9), 0 0 50px rgba(26,10,46,1);
+  }
+  .opt2 .main em{
+    color:var(--gold-light);
+    font-style:italic;
+    text-shadow:0 0 30px rgba(201,168,76,0.5);
+  }
+
+  /* OPTION 3 — Full italic, white with gold "Mystic" + glow */
+  .opt3 h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2.4rem,6.5vw,4.8rem);
+    font-weight:500;
+    font-style:italic;
+    color:#ffffff;
+    letter-spacing:0.03em;
+    line-height:1.1;
+    text-shadow:0 2px 24px rgba(0,0,0,0.9), 0 0 50px rgba(26,10,46,1);
+  }
+  .opt3 h1 em{
+    color:var(--gold-light);
+    font-style:italic;
+    text-shadow:0 0 35px rgba(201,168,76,0.55);
+  }
+
+  /* OPTION 4 — Stacked two-line, thin "THE" above, large italic "Mystic Reader" */
+  .opt4 h1{
+    font-family:'Cormorant Garamond',serif;
+    line-height:1.0;
+  }
+  .opt4 .the{
+    display:block;
+    font-size:clamp(0.85rem,2vw,1.2rem);
+    font-weight:300;
+    font-style:normal;
+    color:rgba(255,255,255,0.45);
+    letter-spacing:0.6em;
+    text-transform:uppercase;
+    margin-bottom:0.3rem;
+  }
+  .opt4 .main{
+    display:block;
+    font-size:clamp(2.8rem,7.5vw,5.5rem);
+    font-weight:600;
+    font-style:italic;
+    background: linear-gradient(135deg, #e8c87a 0%, #ffffff 50%, #e8c87a 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    letter-spacing:0.02em;
+    line-height:1.1;
+    filter:drop-shadow(0 0 20px rgba(201,168,76,0.3));
+  }
+</style>
+</head>
+<body>
+
+<p class="page-label">Hero Title — Preview Options</p>
+
+<!-- OPTION 1 -->
+<div class="option opt1">
+  <div class="option-num">Option 1 — Full italic, all gold</div>
+  <h1>The Mystic Reader</h1>
+  <div class="divider"></div>
+</div>
+
+<!-- OPTION 2 -->
+<div class="option opt2">
+  <div class="option-num">Option 2 — "The" floated above, large italic below</div>
+  <h1>
+    <span class="the">The</span>
+    <span class="main"><em>Mystic</em> Reader</span>
+  </h1>
+  <div class="divider"></div>
+</div>
+
+<!-- OPTION 3 -->
+<div class="option opt3">
+  <div class="option-num">Option 3 — Full italic, white + gold "Mystic" glow (closest to current)</div>
+  <h1>The <em>Mystic</em> Reader</h1>
+  <div class="divider"></div>
+</div>
+
+<!-- OPTION 4 -->
+<div class="option opt4">
+  <div class="option-num">Option 4 — Stacked, gold gradient shimmer</div>
+  <h1>
+    <span class="the">The</span>
+    <span class="main">Mystic Reader</span>
+  </h1>
+  <div class="divider"></div>
+</div>
+
+</body>
+</html>
